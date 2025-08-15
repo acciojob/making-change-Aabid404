@@ -1,20 +1,17 @@
-const makeChange = (c) => {
-  // your name here
-	let change = {};
+function makeChange(amount) {
+  let q = Math.floor(amount / 25);
+  amount %= 25;
 
-  change.q = Math.floor(cents / 25);
-  cents %= 25;
+  let d = Math.floor(amount / 10);
+  amount %= 10;
 
-  change.d = Math.floor(cents / 10);
-  cents %= 10;
+  let n = Math.floor(amount / 5);
+  amount %= 5;
 
-  change.n = Math.floor(cents / 5);
-  cents %= 5;
+  let p = amount; // remaining cents are pennies
 
-  change.p = cents;
-
-  return change;
-};
+  return { q, d, n, p };
+}
 
 // Do not the change the code below
 const c = prompt("Enter c: ");
